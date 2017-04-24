@@ -1,13 +1,5 @@
-#-------------------------------------------------------------------------------
-# Name:        pySaliencyMap
+
 # Purpose:     Extracting a saliency map from a single still image
-#
-# Author:      Akisato Kimura <akisato@ieee.org>
-#
-# Created:     April 24, 2014
-# Copyright:   (c) Akisato Kimura 2014-
-# Licence:     All rights reserved
-#-------------------------------------------------------------------------------
 
 import cv2
 import numpy as np

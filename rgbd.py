@@ -30,9 +30,11 @@ def rgbd( rgb , depth_map ):
 	final_hog=[]
 	for i in [E1,E2,E3,E4,S]:
 		i=np.array(i,np.uint8)
-		final_hog.append(histogram(i))
-	return final_hog
-if __name__ == __main__:
+		#final_hog=np.concatenate(final_hog,np.histogram(i,bins=255))
+		#final_hog.append(histogram(i))
+		final_hog.append(np.histogram(i,bins=255))
+	return np.array(final_hog).flatten()
+if __name__ == "__main__":
 	rgb=cv2.imread("images/color.jpg")
 	if rgb is None:
 		print "color image is not read properly"
@@ -44,6 +46,8 @@ if __name__ == __main__:
 		exit()
 	#print depth
 	final_answer=rgbd(rgb,depth)
+	#print final_answer.flatten()
 	for i in final_answer:
 		print np.array(i).shape
+	print np.concatenate(final_answer).shape
 

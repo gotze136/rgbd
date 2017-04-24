@@ -1,13 +1,3 @@
-#-------------------------------------------------------------------------------
-# Name:        pySaliencyMapDefs
-# Purpose:     Definitions for class pySaliencyMap
-#
-# Author:      Akisato Kimura <akisato@ieee.org>
-#
-# Created:     April 24, 2014
-# Copyright:   (c) Akisato Kimura 2014-
-# Licence:     All rights reserved
-#-------------------------------------------------------------------------------
 
 # parameters for computing optical flows using the Gunner Farneback's algorithm
 farne_pyr_scale = 0.5
