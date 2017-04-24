@@ -10,15 +10,39 @@ def rgbd( rgb , depth_map ):
 	#make size of image ideal
 	height,width=rgb.shape[:2]
 	#extract patch 1
-	patch1=rgb[0.125*height:0.875*height,0.125*width:0.875*width]
+	h1 = int(0.125*height)
+	h2 = int(0.875*height)
+	w1 = int(0.125*width)
+	w2 = int(0.875*width)
+	#patch1=rgb[0.125*height:0.875*height,0.125*width:0.875*width]
+	patch1=rgb[h1:h2,w1:w2]	
 	patch1=np.array(patch1)
 	#print type(patch1)
 
 	#extract patch2
+	h1 = int(0.25*height)
+	h2 = int(0.75*height)
+	w1 = int(0.25*width)
+	w2 = int(0.75*width)
 
-	patch2=rgb[0.25*height:0.75*height,0.25*width:0.75*width]
-	patch3 = depth_map[0.125*height:0.875*height,0.125*width:0.875*width]
-	patch4 = depth_map[0.25*height:0.75*height,0.25*width:0.75*width]
+	#patch2=rgb[0.25*height:0.75*height,0.25*width:0.75*width]
+	patch2=rgb[h1:h2,w1:w2]
+	
+	h1 = int(0.125*height)
+	h2 = int(0.875*height)
+	w1 = int(0.125*width)
+	w2 = int(0.875*width)	
+	
+	#patch3 = depth_map[0.125*height:0.875*height,0.125*width:0.875*width]
+	patch3=depth_map[h1:h2,w1:w2]
+
+	h1 = int(0.25*height)
+	h2 = int(0.75*height)
+	w1 = int(0.25*width)
+	w2 = int(0.75*width)	
+
+	#patch4 = depth_map[0.25*height:0.75*height,0.25*width:0.75*width]
+	patch4=depth_map[h1:h2,w1:w2]	
 	#print "original size is",image.shape
 	#print "patch1 size is",patch1.shape
 	#print "patch2 size is",patch2.shape
