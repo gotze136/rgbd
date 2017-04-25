@@ -7,8 +7,15 @@ def matcher(rgb,depth):
 	print "shape of feature is ",feature.shape
 	data=np.load("database/data.npy")
 	labels=np.load("database/labels.npy")
+	locations=np.load("database/locations.npy")
+	#naming=np.load("database/naming.npy")
 	distance=[]
+	k=0
 	for i in data:
-		distance.append(scipy.spatial.distance.euclidean(i,feature))
-	distance,labels=zip(*sorted(zip(distance,labels)))
+		dist=scipy.spatial.distance.euclidean(i,feature)
+		#print locations[k],labels[k],dist
+		distance.append(dist)
+		k+=1
+
+	distance,labels,locations=zip(*sorted(zip(distance,labels,locations)))
 	return labels

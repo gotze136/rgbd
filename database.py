@@ -19,7 +19,7 @@ for folders in os.listdir(path):  #loop over all the persons
 	for images in os.listdir(color_dir):
 		color_image=color_dir+'/'+images
 		depth_image=depth_dir+'/'+images
-		print "checking for ",color_image
+		print "checking for ",color_image,
 		color=cv2.imread(color_image)
 		color=cv2.resize(color,(140,140))
 		try:
@@ -31,6 +31,7 @@ for folders in os.listdir(path):  #loop over all the persons
 		try:
 		
 			feature=rgbd(color,depth)
+			print feature.shape
 			data.append(feature)
 			#print image
 			locations.append(color_image)

@@ -1,7 +1,7 @@
 import cv2
 import matplotlib.pyplot as plt
 import pySaliencyMap
-
+import numpy as np
 
 def saliency(img):
     imgsize = img.shape
@@ -10,11 +10,13 @@ def saliency(img):
     sm = pySaliencyMap.pySaliencyMap(img_width, img_height)
     # computation
     saliency_map = sm.SMGetSM(img)
-    return saliency_map
+    peak=max(saliency_map.flatten())
+    saliency_map=(255/peak)*saliency_map
+    return np.array(saliency_map,np.uint8)
 # main
 if __name__ == '__main__':
     # read
-    img = cv2.imread('test3.jpg')
+    img = cv2.imread('images/amit1.jpg')
     # initialize
     imgsize = img.shape
     img_width  = imgsize[1]
@@ -22,6 +24,10 @@ if __name__ == '__main__':
     sm = pySaliencyMap.pySaliencyMap(img_width, img_height)
     # computation
     saliency_map = sm.SMGetSM(img)
+    #print saliency_map
+    peak=max(saliency_map.flatten())
+    saliency_map=(255/peak)*saliency_map
+    #print saliency_map
     binarized_map = sm.SMGetBinarizedSM(img)
     salient_region = sm.SMGetSalientRegion(img)
     # visualize
