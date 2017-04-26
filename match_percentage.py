@@ -68,4 +68,5 @@ for persons in os.listdir(path):
 			traceback.print_tb(err.__traceback__)
 
 		print "checking ",color_image,success,fail,total
+		print str(float(success*100)/total)+'%'
 
